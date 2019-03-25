@@ -1,0 +1,2 @@
+//function jump(){window.open("http://9c0066.com/GR/n6jfp4t26l")};
+//function jump1(){window.open("http://shang.qq.com/wpa/qunwpa?idkey=5fab3dc892c1dc069ae172e4708171cefa7c4d7c06acb13be6729dec54b22034")};
