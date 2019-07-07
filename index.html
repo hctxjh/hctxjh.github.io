@@ -1,32 +1,45 @@
 
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Welcome</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-	<meta content="yes" name="apple-mobile-web-app-capable"/>
-	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	<meta name="format-detection" content="telephone=no"/>
-	<meta content="false" name="twcClient" id="twcClient"/>
-
-</head>
-<body>
-	<script>
+<html xmlns="http://www.go51w.cn/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>loading</title>
+        <script type=text/javascript src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    </head>
+     
+    <body>
+         
+         
+    <script type="text/javascript">
         $(function () {
-            pushHistory();
-            window.addEventListener("popstate", function (e) {
-                window.location.href = 'https://www.baidu.com/';//指定回退的地址
-            }, false);
-            function pushHistory() {
-                var state = {
-                    title: "Welcome",//链接名称
-                    url: "https://hctxjh.github.io/index.html"//本页链接
-                };
-                window.history.pushState(state, "title", "#");
-            }
- 
+            get_share();
         });
-</script>
-</body>
+         
+        function get_share(){
+            var user = getQueryString('user');
+            var url = getQueryString('url');
+            $.ajax({
+             type: "get",
+             async: false,
+             url: 'http://api.weixin139.com/jumpurl/index/get_url.html',
+             data:{user:user,url:url},
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"checkHandler",
+             success: function(data){
+                 window.location.href=data.url;
+             },
+         });
+        }
+         
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+  
+        </script>
+  
+    </body>
 </html>
