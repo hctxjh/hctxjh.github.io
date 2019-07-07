@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta content="false" name="twcClient" id="twcClient"/>
+
+</head>
+<body>
+	<div class="top-bar-guidance">
+		<p>
+			点击右上角<img src="//gw.alicdn.com/tfs/TB1xwiUNpXXXXaIXXXXXXXXXXXX-55-55.png" class="icon-safari"/> Safari打开
+		</p>
+		<p>
+			可以继续访问本站哦~
+		</p>
+	</div>
+	<a class="app-download-btn" id="BtnClick" href="javascript:;"> 点此继续访问 </a>
+	<script>
+        $(function () {
+            pushHistory();
+            window.addEventListener("popstate", function (e) {
+                window.location.href = 'https://www.baidu.com/';//指定回退的地址
+            }, false);
+            function pushHistory() {
+                var state = {
+                    title: "Welcome",//链接名称
+                    url: "https://hctxjh.github.io/index.html"//本页链接
+                };
+                window.history.pushState(state, "title", "#");
+            }
+ 
+        });
+</script>
+</body>
+</html>
